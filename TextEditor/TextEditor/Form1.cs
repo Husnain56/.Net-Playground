@@ -108,7 +108,7 @@ namespace TextEditor
         {
             PrintDialog pd = new PrintDialog();
 
-          //  textToPrint = richTextBox1.Text;
+            //  textToPrint = richTextBox1.Text;
 
 
 
@@ -124,15 +124,15 @@ namespace TextEditor
             if (_isModified)
             {
                 DialogResult Result = MessageBox.Show("Do you want to save changes?", "Confirm CLose", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-                if(Result == DialogResult.Cancel)
+                if (Result == DialogResult.Cancel)
                 {
                     e.Cancel = true;
                 }
-                else if(Result == DialogResult.Yes)
+                else if (Result == DialogResult.Yes)
                 {
                     saveAsToolStripMenuItem.PerformClick();
                 }
-                else if(Result==DialogResult.No)
+                else if (Result == DialogResult.No)
                 {
                     e.Cancel = false;
                 }
@@ -143,6 +143,11 @@ namespace TextEditor
         {
             _isModified = true;
 
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            MessageBox.Show("Application Closed!");
         }
     }
 }

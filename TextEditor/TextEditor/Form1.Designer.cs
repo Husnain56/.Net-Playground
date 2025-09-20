@@ -237,6 +237,7 @@
             Name = "Form1";
             Text = "Form1";
             FormClosing += Form1_FormClosing;
+            FormClosed += Form1_FormClosed;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
