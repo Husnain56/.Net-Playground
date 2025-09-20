@@ -5,11 +5,12 @@ namespace TextEditor
     public partial class Form1 : Form
     {
         private PrintDocument printDoc = new PrintDocument();
-        private string textToPrint;
+        private bool _isModified;
 
         public Form1()
         {
             InitializeComponent();
+            _isModified = false;
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -40,7 +41,9 @@ namespace TextEditor
                 StreamWriter sr = new StreamWriter(sfd.FileName);
                 sr.Write(richTextBox1.Text);
                 sr.Close();
+                _isModified = false;
             }
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -105,14 +108,41 @@ namespace TextEditor
         {
             PrintDialog pd = new PrintDialog();
 
-            textToPrint = richTextBox1.Text;
+          //  textToPrint = richTextBox1.Text;
 
 
 
             if (pd.ShowDialog() == DialogResult.OK)
             {
-                
+
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            if (_isModified)
+            {
+                DialogResult Result = MessageBox.Show("Do you want to save changes?", "Confirm CLose", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if(Result == DialogResult.Cancel)
+                {
+                    e.Cancel = true;
+                }
+                else if(Result == DialogResult.Yes)
+                {
+                    saveAsToolStripMenuItem.PerformClick();
+                }
+                else if(Result==DialogResult.No)
+                {
+                    e.Cancel = false;
+                }
+            }
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            _isModified = true;
+
         }
     }
 }

@@ -33,6 +33,7 @@
             newToolStripMenuItem = new ToolStripMenuItem();
             openToolStripMenuItem = new ToolStripMenuItem();
             saveAsToolStripMenuItem = new ToolStripMenuItem();
+            printToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
             editToolStripMenuItem = new ToolStripMenuItem();
             cutToolStripMenuItem = new ToolStripMenuItem();
@@ -51,7 +52,6 @@
             helpToolStripMenuItem = new ToolStripMenuItem();
             aboutUsToolStripMenuItem = new ToolStripMenuItem();
             richTextBox1 = new RichTextBox();
-            printToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -75,28 +75,35 @@
             // newToolStripMenuItem
             // 
             newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new Size(180, 22);
+            newToolStripMenuItem.Size = new Size(114, 22);
             newToolStripMenuItem.Text = "New";
             newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
-            openToolStripMenuItem.Size = new Size(180, 22);
+            openToolStripMenuItem.Size = new Size(114, 22);
             openToolStripMenuItem.Text = "Open";
             openToolStripMenuItem.Click += openToolStripMenuItem_Click;
             // 
             // saveAsToolStripMenuItem
             // 
             saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            saveAsToolStripMenuItem.Size = new Size(180, 22);
+            saveAsToolStripMenuItem.Size = new Size(114, 22);
             saveAsToolStripMenuItem.Text = "Save As";
             saveAsToolStripMenuItem.Click += saveAsToolStripMenuItem_Click;
+            // 
+            // printToolStripMenuItem
+            // 
+            printToolStripMenuItem.Name = "printToolStripMenuItem";
+            printToolStripMenuItem.Size = new Size(114, 22);
+            printToolStripMenuItem.Text = "Print";
+            printToolStripMenuItem.Click += printToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(180, 22);
+            exitToolStripMenuItem.Size = new Size(114, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -152,21 +159,21 @@
             // fontToolStripMenuItem
             // 
             fontToolStripMenuItem.Name = "fontToolStripMenuItem";
-            fontToolStripMenuItem.Size = new Size(180, 22);
+            fontToolStripMenuItem.Size = new Size(170, 22);
             fontToolStripMenuItem.Text = "Font";
             fontToolStripMenuItem.Click += fontToolStripMenuItem_Click;
             // 
             // colorToolStripMenuItem
             // 
             colorToolStripMenuItem.Name = "colorToolStripMenuItem";
-            colorToolStripMenuItem.Size = new Size(180, 22);
+            colorToolStripMenuItem.Size = new Size(170, 22);
             colorToolStripMenuItem.Text = "Font Color";
             colorToolStripMenuItem.Click += colorToolStripMenuItem_Click;
             // 
             // backgroundColorToolStripMenuItem
             // 
             backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
-            backgroundColorToolStripMenuItem.Size = new Size(180, 22);
+            backgroundColorToolStripMenuItem.Size = new Size(170, 22);
             backgroundColorToolStripMenuItem.Text = "Background Color";
             backgroundColorToolStripMenuItem.Click += backgroundColorToolStripMenuItem_Click;
             // 
@@ -175,7 +182,7 @@
             wordWrapToolStripMenuItem.Checked = true;
             wordWrapToolStripMenuItem.CheckState = CheckState.Checked;
             wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
-            wordWrapToolStripMenuItem.Size = new Size(180, 22);
+            wordWrapToolStripMenuItem.Size = new Size(170, 22);
             wordWrapToolStripMenuItem.Text = "Word Wrap";
             // 
             // viewToolStripMenuItem
@@ -188,13 +195,13 @@
             // zoomInToolStripMenuItem
             // 
             zoomInToolStripMenuItem.Name = "zoomInToolStripMenuItem";
-            zoomInToolStripMenuItem.Size = new Size(180, 22);
+            zoomInToolStripMenuItem.Size = new Size(129, 22);
             zoomInToolStripMenuItem.Text = "Zoom In";
             // 
             // zoomOutToolStripMenuItem
             // 
             zoomOutToolStripMenuItem.Name = "zoomOutToolStripMenuItem";
-            zoomOutToolStripMenuItem.Size = new Size(180, 22);
+            zoomOutToolStripMenuItem.Size = new Size(129, 22);
             zoomOutToolStripMenuItem.Text = "Zoom Out";
             // 
             // helpToolStripMenuItem
@@ -217,13 +224,7 @@
             richTextBox1.Size = new Size(800, 423);
             richTextBox1.TabIndex = 1;
             richTextBox1.Text = "";
-            // 
-            // printToolStripMenuItem
-            // 
-            printToolStripMenuItem.Name = "printToolStripMenuItem";
-            printToolStripMenuItem.Size = new Size(180, 22);
-            printToolStripMenuItem.Text = "Print";
-            printToolStripMenuItem.Click += printToolStripMenuItem_Click;
+            richTextBox1.TextChanged += richTextBox1_TextChanged;
             // 
             // Form1
             // 
@@ -235,6 +236,7 @@
             MainMenuStrip = menuStrip1;
             Name = "Form1";
             Text = "Form1";
+            FormClosing += Form1_FormClosing;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ResumeLayout(false);
